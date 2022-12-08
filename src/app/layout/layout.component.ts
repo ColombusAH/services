@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart-service.service';
 
 @Component({
   selector: 'app-layout',
@@ -8,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class LayoutComponent implements OnInit {
 
   cartCount: number = 0;
-  constructor() { }
+  constructor(protected cartService: CartService) { }
 
   ngOnInit(): void {
+    // this.cartCount = this.cartService.cartCount;
   }
 
 }

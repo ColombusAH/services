@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart-service.service';
+import { LoggerService } from '../logger.service';
 
 @Component({
   selector: 'app-products-page',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cartService: CartService, private logger: LoggerService) {
+  }
 
   ngOnInit(): void {
+  }
+
+
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
+    this.logger.log(`[ProductsPageComponent] addToCart() ${product.name}`);
   }
 
 }
